@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "../shared/Modal";
 import ImageUploadField from "../shared/ImageUploadField";
 import { profileAvatar } from "../utils/constants";
+import { demo } from "../utils/constants";
 
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,11 +33,10 @@ const Profile = () => {
               Update picture
             </button>
           </div>
-          <div className=" ml-10">
+          <div className=" ml-10 absolute bottom-6 left-0 w-full">
             <h1 className="text-2xl font-bold">Jack Smith</h1>
             <h1> @kingjack • Senior Product Designer at Webflow • He/Him</h1>
           </div>
-          {/* <Modal isOpen={isOpen} onClose={onClose} children={undefined} /> */}
 
           <Modal isOpen={isOpen} onClose={onClose}>
             <div className="w-96 h-60 flex flex-col justify-center space-y-4">
@@ -57,16 +57,18 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div>
-              <ImageUploadField />
-              <ImageUploadField />
-              <ImageUploadField />
-              <ImageUploadField />
-              <ImageUploadField />
-            </div>
+            <ImageUploadField
+              imageSrc={demo}
+              imageName={"dsfs"}
+              imageSize={"2mb"}
+              progress={70}
+            />
 
-            <div className="mt-2 flex">
-              <button className="bg-white-500 border hover:bg-slate-300 text-black py-2 px-4 rounded w-1/2 mx-1">
+            <div className="mt-2 flex  bottom-0  w-full text-white ">
+              <button
+                className="bg-white-500 border hover:bg-slate-300 text-black py-2 px-4 rounded w-1/2 mx-1"
+                onClick={onClose}
+              >
                 Cancel
               </button>
               <button className="bg-blue-800 border hover:bg-blue-600 text-white py-2 px-4 rounded w-1/2">
